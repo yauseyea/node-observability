@@ -1,4 +1,6 @@
 stages:
+  - lint
+  - test
   - mirror
   - tag
   - publish
