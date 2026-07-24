@@ -1,0 +1,91 @@
+{
+  "name": "@yauseyea/node-observability",
+  "version": "1.0.0",
+  "description": "Shared OpenTelemetry tracing, Pyroscope profiling and Pino logging setup for Node.js services",
+  "keywords": [
+    "logging",
+    "observability",
+    "opentelemetry",
+    "pino",
+    "profiling",
+    "pyroscope",
+    "tracing"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/node-observability.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tracing": {
+      "types": "./dist/tracing.d.ts",
+      "import": "./dist/tracing.js"
+    },
+    "./profiling": {
+      "types": "./dist/profiling.d.ts",
+      "import": "./dist/profiling.js"
+    },
+    "./logger": {
+      "types": "./dist/logger.d.ts",
+      "import": "./dist/logger.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "prepublishOnly": "npm run build",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@opentelemetry/auto-instrumentations-node": "^0.79.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.221.0",
+    "@opentelemetry/resources": "^2.10.0",
+    "@opentelemetry/sdk-node": "^0.221.0",
+    "@opentelemetry/semantic-conventions": "^1.43.0",
+    "@pyroscope/nodejs": "^0.6.1",
+    "pino-loki": "^3.0.0",
+    "pino-pretty": "^13.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@vitest/coverage-v8": "^4.1.10",
+    "@yauseyea/oxlint-config": "^1.0.4",
+    "oxfmt": "^0.60.0",
+    "oxlint": "^1.75.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  },
+  "peerDependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "pino": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "allowScripts": {
+    "@datadog/pprof@5.14.4": true,
+    "protobufjs@7.6.5": true
+  }
+}

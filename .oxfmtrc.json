@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "tabWidth": 2,
+  "semi": true,
+  "sortPackageJson": true,
+  "sortImports": {
+    "groups": [
+      "type",
+      "side_effect",
+      "builtin",
+      "external",
+      ["internal", "subpath"],
+      ["parent", "sibling", "index"],
+      "style",
+      "unknown"
+    ],
+    "newlinesBetween": true,
+    "internalPattern": ["~/", "@/"]
+  },
+  "ignorePatterns": [
+    ".vscode",
+    "node_modules",
+    "dist",
+    "package-lock.json",
+    ".env",
+    ".gitignore",
+    "tsconfig.json",
+    ".gitlab-ci.yml",
+    "readme.md",
+    "renovate.json",
+    ".oxfmtrc.json",
+    ".oxlintrc.json"
+  ]
+}

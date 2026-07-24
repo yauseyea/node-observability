@@ -1,0 +1,25 @@
+stages:
+  - mirror
+  - tag
+  - publish
+
+include:
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'npm-lint.yml'
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'npm-test.yml'
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'mirror-to-github.yml'
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'npm-tag.yml'
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'publish-npm.yml'
+
+variables:
+  HTTPS_REPO: github.com/yauseyea/node-observability.git
+
