@@ -5,16 +5,16 @@ trace-aware Pino logger, packaged for reuse across Node.js/TypeScript services.
 
 ## Install
 
-\`\`\`bash
+```bash
 npm install @yauseyea/node-observability
-\`\`\`
+```
 
 `@opentelemetry/api` and `pino` are peer dependencies — install them
 alongside if you don't already have them:
 
-\`\`\`bash
+```bash
 npm install @opentelemetry/api pino
-\`\`\`
+```
 
 ## ⚠️ Import order matters for tracing
 
@@ -26,7 +26,7 @@ modules are imported anywhere in your app. There are two ways to guarantee this:
 
 Create an `instrumentation.js` in your app:
 
-\`\`\`javascript
+```javascript
 import { initTracing } from '@yauseyea/node-observability/tracing';
 
 initTracing({
@@ -35,13 +35,13 @@ initTracing({
   environment: process.env.NODE_ENV ?? 'local',
   exporterUrl: 'http://tempo:4318/v1/traces',
 });
-\`\`\`
+```
 
 Run your app with:
 
-\`\`\`bash
+```bash
 node --import ./instrumentation.js dist/index.js
-\`\`\`
+```
 
 This is Node/OTel's officially recommended pattern and removes any ordering risk.
 
@@ -50,7 +50,7 @@ This is Node/OTel's officially recommended pattern and removes any ordering risk
 If you can't change your start command, keep tracing/profiling as the
 very first static imports in your entry file, before anything else:
 
-\`\`\`typescript
+```typescript
 // index.ts — must stay at the very top of the file
 import { initProfiling } from '@yauseyea/node-observability/profiling';
 import { initTracing } from '@yauseyea/node-observability/tracing';
@@ -78,7 +78,7 @@ const log = Logger.fromConfig({
     loki: { level: 'info', url: 'http://loki:3100' },
   },
 });
-\`\`\`
+```
 
 ## API
 
@@ -95,7 +95,7 @@ const log = Logger.fromConfig({
 `readCallerPackageVersion()` is exported as a convenience if you want to
 auto-fill `serviceVersion` from your app's own `package.json`:
 
-\`\`\`typescript
+```typescript
 import { initTracing, readCallerPackageVersion } from '@yauseyea/node-observability/tracing';
 
 initTracing({
@@ -104,7 +104,7 @@ initTracing({
   environment: 'local',
   exporterUrl: 'http://tempo:4318/v1/traces',
 });
-\`\`\`
+```
 
 ### `initProfiling(config: ProfilingConfig): void`
 
@@ -124,7 +124,7 @@ log call automatically attaches the active OpenTelemetry `traceId`/`spanId`
 when a sampled span is active, so logs and traces correlate in Grafana out
 of the box.
 
-\`\`\`typescript
+```typescript
 const log = Logger.fromConfig({
   name: 'my-service',
   environment: 'prod',
@@ -136,14 +136,14 @@ const log = Logger.fromConfig({
 
 log.info('server started', { port: 3000 });
 const requestLog = log.child({ requestId: 'abc-123' });
-\`\`\`
+```
 
 ## Development
 
-\`\`\`bash
+```bash
 npm install
 npm run build
-\`\`\`
+```
 
 ## License
 

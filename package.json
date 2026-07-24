@@ -14,8 +14,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-org/node-observability.git"
+    "url": "git+https://github.com/yauseyea/node-observability.git"
   },
+  "author": "Andrei Yauseyenka",
   "files": [
     "dist"
   ],
@@ -49,7 +50,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "build": "npm run clean && tsc -p tsconfig.json",
     "prepublishOnly": "npm run build",
     "lint": "oxlint .",
     "lint:fix": "oxlint . --fix",
