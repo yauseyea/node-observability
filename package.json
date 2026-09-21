@@ -61,9 +61,9 @@
   },
   "dependencies": {
     "@opentelemetry/auto-instrumentations-node": "^0.79.0",
-    "@opentelemetry/exporter-trace-otlp-http": "^0.221.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.222.0",
     "@opentelemetry/resources": "^2.10.0",
-    "@opentelemetry/sdk-node": "^0.221.0",
+    "@opentelemetry/sdk-node": "^0.222.0",
     "@opentelemetry/semantic-conventions": "^1.43.0",
     "@pyroscope/nodejs": "^0.6.1",
     "pino-loki": "^3.0.0",
@@ -73,7 +73,7 @@
     "@types/node": "^26.1.1",
     "@vitest/coverage-v8": "^5.0.0",
     "@yauseyea/oxlint-config": "^1.0.4",
-    "oxfmt": "^0.60.0",
+    "oxfmt": "^0.70.0",
     "oxlint": "^1.75.0",
     "typescript": "^7.0.2",
     "vitest": "^5.0.0"
@@ -87,6 +87,6 @@
   },
   "allowScripts": {
     "@datadog/pprof@5.14.4": true,
-    "protobufjs@7.6.5": true
+    "protobufjs@7.6.6": true
   }
 }
