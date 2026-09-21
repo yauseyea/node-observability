@@ -71,12 +71,12 @@
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
-    "@vitest/coverage-v8": "^4.1.10",
+    "@vitest/coverage-v8": "^5.0.0",
     "@yauseyea/oxlint-config": "^1.0.4",
     "oxfmt": "^0.70.0",
     "oxlint": "^1.75.0",
     "typescript": "^7.0.2",
-    "vitest": "^4.1.10"
+    "vitest": "^5.0.0"
   },
   "peerDependencies": {
     "@opentelemetry/api": "^1.9.1",
