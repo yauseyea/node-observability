@@ -65,7 +65,7 @@
     "@opentelemetry/resources": "^2.10.0",
     "@opentelemetry/sdk-node": "^0.223.0",
     "@opentelemetry/semantic-conventions": "^1.43.0",
-    "@pyroscope/nodejs": "^0.6.1",
+    "@pyroscope/nodejs": "^0.7.0",
     "pino-loki": "^3.0.0",
     "pino-pretty": "^13.1.3"
   },
